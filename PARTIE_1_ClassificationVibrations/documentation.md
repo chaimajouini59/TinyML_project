@@ -106,6 +106,94 @@ Le modèle utilisé est un réseau de neurones simple.
 
 Architecture :
 - ![Architecture projet](https://drive.google.com/uc?export=download&id=1RiNiM5yaC6usWci1T33r6Xys5TAi-x-v)
+
+- 
+La fonction d'activation utilisée est **ReLU**.
+
+La couche de sortie utilise **Softmax**.
+
+---
+## 8. Entraînement du modèle
+
+Après la définition de l'architecture du réseau de neurones, le modèle est entraîné à l'aide des données préparées dans le notebook Google Colab.
+
+L'entraînement consiste à ajuster les poids du réseau afin de minimiser l'erreur de prédiction sur les données d'entraînement.
+
+Le modèle est entraîné avec les paramètres suivants :
+
+- Optimizer : Adam
+- Fonction de perte : sparse categorical crossentropy
+- Nombre d'epochs : 70
+- Batch size : 8
+
+Pendant l'entraînement, deux métriques principales sont suivies :
+
+- **Accuracy**
+- **Loss**
+
+L'accuracy représente la proportion de prédictions correctes réalisées par le modèle.
+
+La loss mesure l'erreur entre les prédictions du modèle et les classes réelles.
+
+---
+
+## 8.1 Évolution de l'accuracy
+
+Le graphique suivant montre l'évolution de l'accuracy pendant l'entraînement.
+
+On observe deux courbes :
+
+- **train accuracy** : précision sur les données d'entraînement
+- **validation accuracy** : précision sur les données de validation
+
+
+ ![Architecture projet](https://drive.google.com/uc?export=download&id=19zZfevbuZPXRwwN31-OigXTEgD8cusdp)
+
+Ce graphique permet de vérifier que le modèle apprend correctement et que l'accuracy augmente progressivement au cours des epochs.
+
+---
+
+## 8.2 Évolution de la loss
+
+La loss permet de mesurer l'erreur du modèle.
+
+Plus la valeur de la loss est faible, plus les prédictions du modèle sont proches des valeurs attendues.
+
+Le graphique suivant montre l'évolution de la loss pendant l'entraînement.
+
+
+ ![Architecture projet](https://drive.google.com/uc?export=download&id=1UK_fT8qEFc5Zl1dWE-UPt4RlkdbBiYML)
+
+On observe généralement que la loss diminue progressivement lorsque le modèle apprend correctement.
+
+---
+
+## 8.3 Évaluation du modèle
+
+Après l'entraînement, le modèle est évalué sur le dataset de test.
+
+Cela permet de vérifier que le modèle est capable de généraliser sur des données qu'il n'a jamais vues pendant l'entraînement.
+
+Les métriques utilisées pour l'évaluation sont :
+
+- accuracy
+- confusion matrix
+- classification report
+
+---
+
+## 8.4 Matrice de confusion
+
+La matrice de confusion permet d'observer les performances du modèle pour chaque classe.
+
+Elle montre combien de prédictions sont correctes ou incorrectes pour chaque catégorie de vibration.
+
+Insérer ici la capture d'écran de la matrice de confusion générée dans le notebook.
+
+ ![Architecture projet](https://drive.google.com/uc?export=download&id=1b4VgHHlsahgimpSmaEjwQcAz-5ekDSFf)
+
+Cette matrice permet d'identifier les classes qui peuvent être confondues par le modèle.
+
   
 
 
