@@ -72,4 +72,4 @@ Les étapes principales du projet sont les suivantes :
 - Python
 - TensorFlow / TensorFlow Lite
 - Google Colab
-- ![Architecture projet](https://drive.google.com/uc?export=download&id=1UK_fT8qEFc5Zl1dWE-UPt4RlkdbBiYML)
+
