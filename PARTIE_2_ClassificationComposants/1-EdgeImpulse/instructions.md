@@ -226,3 +226,4 @@ Elle permet de :
 - optimiser le modèle pour microcontrôleur  
 - exporter une bibliothèque Arduino  
 - déployer le modèle sur un système embarqué.
+
