@@ -197,11 +197,12 @@ Cette matrice permet d'identifier les classes qui peuvent être confondues par l
 
 Après l’entraînement et l’évaluation du modèle dans le notebook, plusieurs fichiers sont générés afin de permettre le déploiement sur Arduino.
 
+
 | Fichier | Description |
 |-------|-------------|
-| vibration_idle_normal_high.tflite | Modèle TensorFlow Lite optimisé pour l’exécution sur microcontrôleur |
+| vibration_model.tflite | Modèle TensorFlow Lite optimisé pour l'exécution sur microcontrôleur |
 | model_data.h | Modèle converti en tableau C pour être compilé dans le programme Arduino |
-| labels.txt | Liste des classes reconnues par le modèle |
+| labels.txt | Liste des classes reconnues par le modèle : no_vibration, low_vibration, high_vibration |
 | mean.npy / std.npy | Paramètres de normalisation utilisés pendant le prétraitement des données |
 
 Le fichier `.tflite` est le modèle final exporté depuis TensorFlow.  
