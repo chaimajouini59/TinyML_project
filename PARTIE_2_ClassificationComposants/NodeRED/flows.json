@@ -1,0 +1,98 @@
+[
+    {
+        "id": "b3a99cced3e7dbf8",
+        "type": "tab",
+        "label": "Flux 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2cb42a3505f3ea59",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM3",
+        "serialbaud": "115200",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "0b3b9551286a0f5e",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM3",
+        "serialbaud": "115200",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "09ac56b7db675093",
+        "type": "serial in",
+        "z": "b3a99cced3e7dbf8",
+        "name": "",
+        "serial": "2cb42a3505f3ea59",
+        "x": 250,
+        "y": 80,
+        "wires": [
+            [
+                "fe53c24ad2ffbf9c"
+            ]
+        ]
+    },
+    {
+        "id": "d88e0aad93a65210",
+        "type": "serial out",
+        "z": "b3a99cced3e7dbf8",
+        "name": "",
+        "serial": "0b3b9551286a0f5e",
+        "x": 650,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "fe53c24ad2ffbf9c",
+        "type": "debug",
+        "z": "b3a99cced3e7dbf8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "bccd23e8576e3afe",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-serialport": "2.0.3"
+        }
+    }
+]
