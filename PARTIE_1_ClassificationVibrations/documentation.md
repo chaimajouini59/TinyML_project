@@ -193,9 +193,61 @@ Insérer ici la capture d'écran de la matrice de confusion générée dans le n
  ![Architecture projet](https://drive.google.com/uc?export=download&id=1b4VgHHlsahgimpSmaEjwQcAz-5ekDSFf)
 
 Cette matrice permet d'identifier les classes qui peuvent être confondues par le modèle.
+## 9. Export du modèle
 
+Après l’entraînement et l’évaluation du modèle dans le notebook, plusieurs fichiers sont générés afin de permettre le déploiement sur Arduino.
+
+| Fichier | Description |
+|-------|-------------|
+| vibration_idle_normal_high.tflite | Modèle TensorFlow Lite optimisé pour l’exécution sur microcontrôleur |
+| model_data.h | Modèle converti en tableau C pour être compilé dans le programme Arduino |
+| labels.txt | Liste des classes reconnues par le modèle |
+| mean.npy / std.npy | Paramètres de normalisation utilisés pendant le prétraitement des données |
+
+Le fichier `.tflite` est le modèle final exporté depuis TensorFlow.  
+Pour pouvoir l’utiliser dans Arduino, il est converti en tableau C et stocké dans le fichier `model_data.h`.
+
+Ce fichier est ensuite inclus dans le programme Arduino afin que le modèle puisse être chargé directement sur la carte.
+
+---
+
+## 10. Déploiement sur Arduino
+
+Le modèle entraîné est ensuite utilisé dans le programme Arduino suivant :
+Inference_Arduino/inference_vibrations.ino
   
+Ce programme permet d’exécuter le modèle directement sur la carte Arduino Nano 33 BLE.
+
+Le fonctionnement est le suivant :
+
+1. Lecture des données du capteur IMU en temps réel
+2. Création d’une fenêtre de mesures
+3. Extraction des caractéristiques utilisées pendant l’entraînement
+4. Normalisation des données avec les paramètres `mean` et `std`
+5. Exécution du modèle TensorFlow Lite
+6. Affichage de la classe prédite dans le Serial Monitor
+
+---
+
+## 11. Résultat sur Arduino
+
+Après le déploiement du modèle, les prédictions peuvent être observées dans le **Serial Monitor** de l’Arduino IDE.
+
+Le programme affiche la classe de vibration détectée ainsi que le score associé.
+
+Exemple de résultat obtenu lors du test du système :
 
 
 
+ ![Architecture projet](https://drive.google.com/uc?export=download&id=19SLXJ5AcfQeNp3wdEPJ1jgYl5Y-07f58)
+
+ ## 12. Fichiers importants du projet
+
+Les fichiers principaux utilisés dans cette partie du projet sont :
+
+| Fichier | Rôle |
+|-------|------|
+| data_generation.ino | Programme Arduino utilisé pour collecter les données IMU |
+| training_vibrations.ipynb | Notebook utilisé pour l'entraînement du modèle et la génération des fichiers |
+| inference_vibrations.ino | Programme Arduino permettant d’exécuter le modèle et de prédire la classe de vibration |
 
